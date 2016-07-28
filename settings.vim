@@ -17,6 +17,7 @@ set visualbell
 set noerrorbells
 set shell=bash
 set wildignore=*.o,*.obj,*.bak,*.exe,*.pyc,*.DS_Store,*.db
+set cb=unnamed
 
 " Always split window in right direction {{{
 set splitright

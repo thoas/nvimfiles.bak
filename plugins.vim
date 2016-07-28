@@ -173,3 +173,5 @@ let g:neosnippet#snippets_directory='~/.config/nvim/plugged/vim-snippets/snippet
 
 autocmd FileType go nmap <leader>t  <Plug>(go-test)
 autocmd FileType go nmap <leader>b  <Plug>(go-build)
+
+let g:neomake_python_flake8_args = neomake#makers#ft#python#flake8()['args'] + ['--ignore=E501']
