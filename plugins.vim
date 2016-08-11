@@ -91,7 +91,6 @@ let NERDTreeWinSize=35
 
 noremap <leader>n :NERDTreeToggle<CR>
 nnoremap <silent> <F9> :NERDTreeToggle<CR>
-map <D-S-/> <plug>NERDCommenterToggle
 
 nmap <leader>x <Plug>ToggleAutoCloseMappings
 
@@ -137,6 +136,17 @@ imap <c-x><c-l> <plug>(fzf-complete-line)
 inoremap <expr> <c-x><c-k> fzf#vim#complete#word({'left': '15%'})
 
 let g:deoplete#enable_at_startup = 1
+let g:deoplete#ignore_sources = {}
+let g:deoplete#ignore_sources._ = ['buffer', 'member', 'tag', 'file', 'neosnippet']
+let g:deoplete#sources#go#sort_class = ['func', 'type', 'var', 'const']
+let g:deoplete#sources#go#align_class = 1
+let g:deoplete#sources#jedi#python_path = '/Users/thoas/.pyenv/versions/neovim3/bin/python'
+
+
+" Use partial fuzzy matches like YouCompleteMe
+call deoplete#custom#set('_', 'matchers', ['matcher_fuzzy'])
+call deoplete#custom#set('_', 'converters', ['converter_remove_paren'])
+call deoplete#custom#set('_', 'disabled_syntaxes', ['Comment', 'String'])
 
 let g:go_fmt_command = "goimports"
 let g:go_highlight_functions = 1
@@ -171,7 +181,112 @@ let g:neosnippet#enable_snipmate_compatibility = 1
 " Tell Neosnippet about the other snippets
 let g:neosnippet#snippets_directory='~/.config/nvim/plugged/vim-snippets/snippets'
 
+
+" run :GoBuild or :GoTestCompile based on the go file
+function! s:build_go_files()
+  let l:file = expand('%')
+  if l:file =~# '^\f\+_test\.go$'
+    call go#cmd#Test(0, 1)
+  elseif l:file =~# '^\f\+\.go$'
+    call go#cmd#Build(0)
+  endif
+endfunction
+
+autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
 autocmd FileType go nmap <leader>t  <Plug>(go-test)
-autocmd FileType go nmap <leader>b  <Plug>(go-build)
 
 let g:neomake_python_flake8_args = neomake#makers#ft#python#flake8()['args'] + ['--ignore=E501']
+
+let g:vim_json_syntax_conceal = 0
+let g:jsx_ext_required = 0
+
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste'],
+      \             [ 'fugitive', 'filename', 'modified' ],
+      \             [ 'go'] ],
+      \   'right': [ [ 'lineinfo' ], 
+      \              [ 'percent' ], 
+      \              [ 'fileformat', 'fileencoding', 'filetype' ] ]
+      \ },
+      \ 'inactive': {
+      \   'left': [ [ 'go'] ],
+      \ },
+      \ 'component_function': {
+      \   'lineinfo': 'LightLineInfo',
+      \   'percent': 'LightLinePercent',
+      \   'modified': 'LightLineModified',
+      \   'filename': 'LightLineFilename',
+      \   'go': 'LightLineGo',
+      \   'fileformat': 'LightLineFileformat',
+      \   'filetype': 'LightLineFiletype',
+      \   'fileencoding': 'LightLineFileencoding',
+      \   'mode': 'LightLineMode',
+      \   'fugitive': 'LightLineFugitive',
+      \ },
+      \ }
+
+function! LightLineModified()
+  if &filetype == "help"
+    return ""
+  elseif &modified
+    return "+"
+  elseif &modifiable
+    return ""
+  else
+    return ""
+  endif
+endfunction
+
+function! LightLineFileformat()
+  return winwidth(0) > 70 ? &fileformat : ''
+endfunction
+
+function! LightLineFiletype()
+  return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype : 'no ft') : ''
+endfunction
+
+function! LightLineFileencoding()
+  return winwidth(0) > 70 ? (strlen(&fenc) ? &fenc : &enc) : ''
+endfunction
+
+function! LightLineInfo()
+  return winwidth(0) > 60 ? printf("%3d:%-2d", line('.'), col('.')) : ''
+endfunction
+
+function! LightLinePercent()
+  return &ft =~? 'vimfiler' ? '' : (100 * line('.') / line('$')) . '%'
+endfunction
+
+function! LightLineFugitive()
+  return exists('*fugitive#head') ? fugitive#head() : ''
+endfunction
+
+function! LightLineGo()
+  " return ''
+  return exists('*go#jobcontrol#Statusline') ? go#jobcontrol#Statusline() : ''
+endfunction
+
+function! LightLineMode()
+  let fname = expand('%:t')
+  return fname == 'ControlP' ? 'CtrlP' :
+        \ &ft == 'vimfiler' ? 'VimFiler' :
+        \ winwidth(0) > 60 ? lightline#mode() : ''
+endfunction
+
+function! LightLineFilename()
+  let fname = expand('%:t')
+  if mode() == 't'
+    return ''
+  endif
+
+  return fname == 'ControlP' ? g:lightline.ctrlp_item :
+        \ &ft == 'vimfiler' ? vimfiler#get_status_string() :
+        \ ('' != LightLineReadonly() ? LightLineReadonly() . ' ' : '') .
+        \ ('' != fname ? fname : '[No Name]')
+endfunction
+
+function! LightLineReadonly()
+  return &ft !~? 'help' && &readonly ? 'RO' : ''
+endfunction

@@ -63,7 +63,9 @@ if has("autocmd")
     au BufRead,BufNewFile *.pp                          set filetype=puppet
     autocmd BufNewFile,BufRead *.jade setf haml
 
-    au! BufRead,BufNewFile *.scala.html                   setfiletype scala
+    au! BufRead,BufNewFile *.scala.html                 setfiletype scala
+    au! BufRead,BufNewFile *.json.j2                    setfiletype json
+    au! BufRead,BufNewFile *.yml.j2                     setfiletype yaml
 
     augroup markdown
         au! BufRead,BufNewFile *.mkd                    setfiletype mkd

@@ -66,3 +66,11 @@ set wildignore+=*.o,*.obj,*.pyc,.git,.svn
 " }}}
 
 set completeopt-=preview
+
+" neocomplete like
+set completeopt+=noinsert
+" deoplete.nvim recommend
+set completeopt+=noselect
+
+let g:python_host_prog = '/Users/thoas/.pyenv/versions/neovim2/bin/python'
+let g:python3_host_prog = '/Users/thoas/.pyenv/versions/neovim3/bin/python'

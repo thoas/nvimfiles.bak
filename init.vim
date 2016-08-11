@@ -3,7 +3,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'fatih/vim-go', { 'tag': '*' }
 Plug 'pangloss/vim-javascript'
-Plug 'vim-airline/vim-airline'
+Plug 'itchyny/lightline.vim'
 Plug 'neomake/neomake'
 Plug 'tpope/vim-unimpaired'
 Plug 'tomtom/tcomment_vim'
@@ -20,11 +20,14 @@ Plug 'honza/vim-snippets'
 Plug 'tpope/vim-fugitive'
 Plug 'majutsushi/tagbar', { 'tag': 'v2.6.1' }
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle', 'tag': '5.0.0' }
-Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
+Plug 'mxw/vim-jsx'
+Plug 'zchee/deoplete-jedi'
+Plug 'tweekmonster/nvim-checkhealth'
 function! DoRemote(arg)
       UpdateRemotePlugins
   endfunction
   Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
+Plug 'zchee/deoplete-go', { 'do': 'make'}
 call plug#end()
 
 

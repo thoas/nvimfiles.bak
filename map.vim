@@ -101,8 +101,8 @@ vnoremap <D-d> m'y'>p`'
 " }}}
 
 " Reload the current file {{{
-noremap <D-r> :e<CR>
-noremap <leader>r :e<CR>
+noremap <D-r> :e!<CR>
+noremap <leader>r :e!<CR>
 " }}}
 
 " Navigate into tabs with  {{{
