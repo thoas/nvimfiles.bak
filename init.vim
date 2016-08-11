@@ -23,6 +23,7 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle', 'tag': '5.0.0' }
 Plug 'mxw/vim-jsx'
 Plug 'zchee/deoplete-jedi'
 Plug 'tweekmonster/nvim-checkhealth'
+Plug 'carlitux/deoplete-ternjs'
 function! DoRemote(arg)
       UpdateRemotePlugins
   endfunction
