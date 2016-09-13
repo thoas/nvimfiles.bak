@@ -24,6 +24,9 @@ Plug 'mxw/vim-jsx'
 Plug 'zchee/deoplete-jedi'
 Plug 'tweekmonster/nvim-checkhealth'
 Plug 'carlitux/deoplete-ternjs'
+Plug 'ekalinin/Dockerfile.vim'
+Plug 'chase/vim-ansible-yaml'
+Plug 'ctrlpvim/ctrlp.vim'
 function! DoRemote(arg)
       UpdateRemotePlugins
   endfunction

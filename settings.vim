@@ -11,6 +11,8 @@ set encoding=utf-8
 set fileencoding=utf-8
 set colorcolumn=120
 
+set termguicolors
+
 set nocompatible
 set title
 set visualbell
