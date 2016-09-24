@@ -261,3 +261,26 @@ endfunction
 
 nnoremap <silent> Q :call CloseWindowOrKillBuffer()<cr>
 nnoremap <C-W> :call CloseWindowOrKillBuffer()<cr>
+
+if has('nvim')
+  " Leader q to exit terminal mode. Somehow it jumps to the end, so jump to
+  " the top again
+  tnoremap <Leader>q <C-\><C-n>gg<cr>
+  tnoremap <C-W> <C-\><C-n>gg<cr>
+
+  " mappings to move out from terminal to other views
+  tnoremap <C-h> <C-\><C-n><C-w>h
+  tnoremap <C-j> <C-\><C-n><C-w>j
+  tnoremap <C-k> <C-\><C-n><C-w>k
+  tnoremap <C-l> <C-\><C-n><C-w>l
+
+  " Open terminal in vertical, horizontal and new tab
+  " NOTE(arslan): never used them
+  " nnoremap <leader>tv :vsplit term://zsh<CR>
+  " nnoremap <leader>ts :split term://zsh<CR>
+  " nnoremap <leader>tt :tabnew term://zsh<CR>
+
+  " always start terminal in insert mode
+  autocmd BufWinEnter,WinEnter term://* startinsert
+endif
+
