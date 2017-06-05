@@ -43,7 +43,8 @@ hi DiffChange      guifg=#89807D guibg=#4C4745
 hi DiffDelete      guifg=#960050 guibg=#1E0010
 hi DiffText                      guibg=#4C4745 gui=italic,bold
 
-hi Directory       guifg=#A6E22E               gui=bold
+" hi Directory       guifg=#A6E22E               gui=bold
+hi Directory       guifg=#96CBFE               gui=bold
 hi Error           guifg=#E6DB74 guibg=#1E0010
 hi ErrorMsg        guifg=#F92672 guibg=#232526 gui=bold
 hi Exception       guifg=#A6E22E               gui=bold
@@ -55,7 +56,8 @@ hi Identifier      guifg=#FD971F
 hi Ignore          guifg=#808080 guibg=bg
 hi IncSearch       guifg=#C4BE89 guibg=#000000
 
-hi Keyword         guifg=#F92672               gui=bold
+" hi Keyword         guifg=#F92672               gui=bold
+hi Keyword         guifg=#96CBFE               gui=bold
 hi Label           guifg=#E6DB74               gui=none
 hi Macro           guifg=#C4BE89               gui=italic
 hi SpecialKey      guifg=#66D9EF               gui=italic

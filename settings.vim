@@ -6,6 +6,7 @@ set background=dark
 syntax enable
 set background=dark
 colorscheme molokai
+let g:molokai_original=1
 " let g:solarized_termcolors=256
 
 " Override buffer, no save requirement when switching from on to another {{{
