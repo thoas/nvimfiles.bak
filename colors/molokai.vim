@@ -89,7 +89,8 @@ if has("spell")
     hi SpellLocal  guisp=#70F0F0 gui=undercurl
     hi SpellRare   guisp=#FFFFFF gui=undercurl
 endif
-hi Statement       guifg=#F92672               gui=bold
+" hi Statement       guifg=#F92672               gui=bold
+hi Statement       guifg=#6699CC               gui=bold
 hi StatusLine      guifg=#455354 guibg=fg
 hi StatusLineNC    guifg=#808080 guibg=#080808
 hi StorageClass    guifg=#FD971F               gui=italic
