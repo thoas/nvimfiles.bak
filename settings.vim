@@ -3,6 +3,11 @@ let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 colorscheme ir_black
 set background=dark
 
+syntax enable
+set background=dark
+colorscheme molokai
+" let g:solarized_termcolors=256
+
 " Override buffer, no save requirement when switching from on to another {{{
 set hidden
 " }}}
