@@ -238,7 +238,7 @@ endfunction
 
 autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
 autocmd FileType go nmap <leader>t  <Plug>(go-test)
-
+au FileType go nmap <leader>gt :GoDeclsDir<cr>
 
 let g:vim_json_syntax_conceal = 0
 let g:jsx_ext_required = 0
