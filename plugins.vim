@@ -198,8 +198,6 @@ let g:ale_sign_error = '✗'
 let g:ale_sign_warning = '⚠'
 let g:ale_python_flake8_args="--ignore=E501"
 
-let g:airline#extensions#ale#enabled = 1
-
 noremap <leader>t :TagbarToggle<CR>
 noremap <D-S-T> :TagbarToggle<CR>
 nnoremap <silent> <F8> :TagbarToggle<CR>
@@ -239,6 +237,10 @@ endfunction
 autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
 autocmd FileType go nmap <leader>t  <Plug>(go-test)
 au FileType go nmap <leader>gt :GoDeclsDir<cr>
+au FileType go nmap <leader>gdv <Plug>(go-def-vertical)
+au FileType go nmap <leader>gdh <Plug>(go-def-horizontal)
+au FileType go nmap <leader>gD <Plug>(go-doc)
+au FileType go nmap <leader>gDv <Plug>(go-doc-vertical)
 
 let g:vim_json_syntax_conceal = 0
 let g:jsx_ext_required = 0
