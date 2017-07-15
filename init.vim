@@ -4,7 +4,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'fatih/vim-go', { 'tag': 'v1.10' }
 Plug 'pangloss/vim-javascript'
 Plug 'itchyny/lightline.vim'
-Plug 'neomake/neomake'
+Plug 'w0rp/ale'
 Plug 'tpope/vim-unimpaired'
 Plug 'tomtom/tcomment_vim'
 Plug 'tpope/vim-commentary'

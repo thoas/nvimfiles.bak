@@ -82,6 +82,11 @@ if has("autocmd")
     autocmd BufEnter *.txt                              set filetype=text
     autocmd BufEnter *.todo                             set filetype=todo
 
+    au FileType go                                      set noexpandtab
+    au FileType go                                      set shiftwidth=4
+    au FileType go                                      set softtabstop=4
+    au FileType go                                      set tabstop=4
+
     au BufNewFile,BufRead admin.py                      setlocal filetype=python.django
     au BufNewFile,BufRead urls.py                       setlocal filetype=python.django
     au BufNewFile,BufRead models.py                     setlocal filetype=python.django
