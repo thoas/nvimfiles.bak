@@ -1,7 +1,8 @@
 call plug#begin('~/.config/nvim/plugged')
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'fatih/vim-go', { 'tag': 'v1.10' }
+Plug 'AndrewRadev/splitjoin.vim'
+Plug 'fatih/vim-go', { 'tag': 'v1.14' }
 Plug 'pangloss/vim-javascript'
 Plug 'itchyny/lightline.vim'
 Plug 'w0rp/ale'
