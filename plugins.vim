@@ -197,6 +197,7 @@ let g:go_addtags_transform = "snakecase"
 let g:ale_sign_error = '✗'
 let g:ale_sign_warning = '⚠'
 let g:ale_python_flake8_args="--ignore=E501"
+let g:ale_linters = {'python': ['flake8']}
 
 noremap <leader>t :TagbarToggle<CR>
 noremap <D-S-T> :TagbarToggle<CR>
