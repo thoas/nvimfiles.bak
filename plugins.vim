@@ -194,8 +194,10 @@ let g:go_metalinter_enabled = [
 
 let g:go_addtags_transform = "snakecase"
 
+let g:ale_sign_warning = '▲'
 let g:ale_sign_error = '✗'
-let g:ale_sign_warning = '⚠'
+highlight link ALEWarningSign String
+highlight link ALEErrorSign Title
 let g:ale_python_flake8_args="--ignore=E501"
 let g:ale_linters = {'python': ['flake8']}
 
@@ -259,10 +261,21 @@ let g:lightline = {
       \             [ 'go'] ],
       \   'right': [ [ 'lineinfo' ], 
       \              [ 'percent' ], 
+      \              [ 'readonly', 'linter_warnings', 'linter_errors', 'linter_ok' ],
       \              [ 'fileformat', 'fileencoding', 'filetype' ] ]
       \ },
       \ 'inactive': {
       \   'left': [ [ 'go'] ],
+      \ },
+      \ 'component_expand': {
+      \   'linter_warnings': 'LightlineLinterWarnings',
+      \   'linter_errors': 'LightlineLinterErrors',
+      \   'linter_ok': 'LightlineLinterOK'
+      \ },
+      \ 'component_type': {
+      \   'readonly': 'error',
+      \   'linter_warnings': 'warning',
+      \   'linter_errors': 'error'
       \ },
       \ 'component_function': {
       \   'lineinfo': 'LightLineInfo',
@@ -288,6 +301,32 @@ function! LightLineModified()
   else
     return ""
   endif
+endfunction
+
+autocmd User ALELint call s:MaybeUpdateLightline()
+function! s:MaybeUpdateLightline()
+  if exists('#lightline')
+    call lightline#update()
+  end
+endfunction
+
+function! LightlineLinterWarnings() abort
+  let l:counts = ale#statusline#Count(bufnr(''))
+  let l:all_errors = l:counts.error + l:counts.style_error
+  let l:all_non_errors = l:counts.total - l:all_errors
+  return l:counts.total == 0 ? '' : printf('%d ◆', all_non_errors)
+endfunction
+function! LightlineLinterErrors() abort
+  let l:counts = ale#statusline#Count(bufnr(''))
+  let l:all_errors = l:counts.error + l:counts.style_error
+  let l:all_non_errors = l:counts.total - l:all_errors
+  return l:counts.total == 0 ? '' : printf('%d ✗', all_errors)
+endfunction
+function! LightlineLinterOK() abort
+  let l:counts = ale#statusline#Count(bufnr(''))
+  let l:all_errors = l:counts.error + l:counts.style_error
+  let l:all_non_errors = l:counts.total - l:all_errors
+  return l:counts.total == 0 ? '✓ ' : ''
 endfunction
 
 function! LightLineFileformat()
