@@ -194,12 +194,20 @@ let g:go_metalinter_enabled = [
 
 let g:go_addtags_transform = "snakecase"
 
+" Write this in your vimrc file
+let g:ale_lint_on_text_changed = 'never'
+" You can disable this option too
+" if you don't want linters to run on opening a file
+let g:ale_lint_on_enter = 0
 let g:ale_sign_warning = '▲'
 let g:ale_sign_error = '✗'
 highlight link ALEWarningSign String
 highlight link ALEErrorSign Title
 let g:ale_python_flake8_args="--ignore=E501"
 let g:ale_linters = {'python': ['flake8']}
+
+nmap <silent> <F6> <Plug>(ale_previous_wrap)
+nmap <silent> <F7> <Plug>(ale_next_wrap)
 
 noremap <leader>t :TagbarToggle<CR>
 noremap <D-S-T> :TagbarToggle<CR>
