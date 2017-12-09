@@ -4,7 +4,7 @@ endif
 
 let python_highlight_space_errors = 0
 
-let NERDTreeIgnore = ['\.pyc$', '\.pyo$', '\.egg-info$', '\.egg-link', '\.class', '\.retry']
+let NERDTreeIgnore = ['\.pyc$', '\.pyo$', '\.egg-info$', '\.egg-link' , '\.retry']
 let NERDTreeChDirMode = 2
 let NERDTreeSortOrder = ['^__\.py$', '\/$', '*', '\.swp$',  '\.bak$', '\~$']
 let NERDTreeShowBookmarks = 1
