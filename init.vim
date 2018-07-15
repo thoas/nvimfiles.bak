@@ -19,6 +19,7 @@ Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
 Plug 'sbdchd/neoformat'
 Plug 'elzr/vim-json'
+Plug 'ambv/black',
 Plug 'honza/vim-snippets'
 Plug 'tpope/vim-fugitive'
 Plug 'majutsushi/tagbar', { 'tag': 'v2.6.1' }

@@ -204,7 +204,8 @@ let g:ale_sign_error = '✗'
 highlight link ALEWarningSign String
 highlight link ALEErrorSign Title
 let g:ale_python_flake8_args="--ignore=E501"
-let g:ale_linters = {'python': ['flake8'], 'javascript': ['eslint'], 'go': ['go build', 'golint', 'go vet']}
+let g:ale_linters = {'python': ['flake8'], 'javascript': ['eslint'], 'go': ['go build']}
+let g:ale_go_gometalinter_options = ' --aggregate --fast --sort=line --vendor --vendored-linters '
 
 nmap <silent> <F6> <Plug>(ale_previous_wrap)
 nmap <silent> <F7> <Plug>(ale_next_wrap)
