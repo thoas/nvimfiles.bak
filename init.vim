@@ -25,6 +25,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'majutsushi/tagbar', { 'tag': 'v2.6.1' }
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle', 'tag': '5.0.0' }
 Plug 'mxw/vim-jsx'
+Plug 'ambv/black'
 Plug 'zchee/deoplete-jedi'
 Plug 'tweekmonster/nvim-checkhealth'
 Plug 'carlitux/deoplete-ternjs'
