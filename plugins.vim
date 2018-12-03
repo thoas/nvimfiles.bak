@@ -78,8 +78,8 @@ endfunction
 let g:NERDTreeWinPos = "left"
 let NERDTreeWinSize=35
 
-noremap <leader>n :NERDTreeToggle<CR>
-nnoremap <silent> <F9> :NERDTreeToggle<CR>
+noremap <leader>n :NERDTreeToggle<CR> :NERDTreeMirror<CR>
+nnoremap <silent> <F9> :NERDTreeToggle<CR> :NERDTreeMirror<CR>
 
 nmap <leader>x <Plug>ToggleAutoCloseMappings
 
@@ -214,9 +214,9 @@ noremap <leader>t :TagbarToggle<CR>
 noremap <D-S-T> :TagbarToggle<CR>
 nnoremap <silent> <F8> :TagbarToggle<CR>
 
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-k>     <Plug>(neosnippet_expand_target)
+imap <C-n>     <Plug>(neosnippet_expand_or_jump)
+smap <C-n>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-n>     <Plug>(neosnippet_expand_target)
 
 " SuperTab like snippets behavior.
 imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
