@@ -32,6 +32,7 @@ Plug 'carlitux/deoplete-ternjs'
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'chase/vim-ansible-yaml'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'mileszs/ack.vim'
 function! DoRemote(arg)
       UpdateRemotePlugins
   endfunction
