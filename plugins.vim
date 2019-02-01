@@ -166,7 +166,7 @@ call deoplete#custom#set('_', 'converters', ['converter_remove_paren'])
 call deoplete#custom#set('_', 'disabled_syntaxes', ['Comment', 'String'])
 
 let g:go_fmt_command = "goimports"
-let g:go_auto_type_info = 1
+let g:go_auto_type_info = 0
 let g:go_snippet_engine = "neosnippet"
 let g:go_highlight_types = 1
 let g:go_highlight_fields = 1
