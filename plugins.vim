@@ -165,6 +165,8 @@ call deoplete#custom#set('_', 'matchers', ['matcher_fuzzy'])
 call deoplete#custom#set('_', 'converters', ['converter_remove_paren'])
 call deoplete#custom#set('_', 'disabled_syntaxes', ['Comment', 'String'])
 
+let g:go_info_mode = 'gocode'
+let g:go_def_mode='gopls'
 let g:go_fmt_command = "goimports"
 let g:go_auto_type_info = 0
 let g:go_snippet_engine = "neosnippet"
@@ -206,6 +208,8 @@ highlight link ALEErrorSign Title
 let g:ale_python_flake8_args="--ignore=E501"
 let g:ale_python_flake8_options = '--ignore=E501'
 let g:ale_linters = {'python': ['flake8'], 'javascript': ['eslint'], 'go': ['go build']}
+let g:ale_go_langserver_executable = 'gopls'
+
 
 nmap <silent> <F6> <Plug>(ale_previous_wrap)
 nmap <silent> <F7> <Plug>(ale_next_wrap)
