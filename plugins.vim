@@ -274,7 +274,7 @@ let g:lightline = {
       \             [ 'go'] ],
       \   'right': [ [ 'lineinfo' ], 
       \              [ 'percent' ], 
-      \              [ 'readonly', 'linter_warnings', 'linter_errors', 'linter_ok' ],
+      \              [ 'readonly' ],
       \              [ 'fileformat', 'fileencoding', 'filetype' ] ]
       \ },
       \ 'inactive': {
