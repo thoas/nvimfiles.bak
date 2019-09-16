@@ -26,18 +26,21 @@ Plug 'majutsushi/tagbar', { 'tag': 'v2.6.1' }
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle', 'tag': '5.0.0' }
 Plug 'mxw/vim-jsx'
 Plug 'ambv/black'
-Plug 'zchee/deoplete-jedi'
 Plug 'tweekmonster/nvim-checkhealth'
-Plug 'carlitux/deoplete-ternjs'
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'chase/vim-ansible-yaml'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'mileszs/ack.vim'
-function! DoRemote(arg)
-      UpdateRemotePlugins
-  endfunction
-  Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
-Plug 'zchee/deoplete-go', { 'do': 'make'}
+
+" function! DoRemote(arg)
+"       UpdateRemotePlugins
+"   endfunction
+"   Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
+" Plug 'zchee/deoplete-go', { 'do': 'make'}
+" Plug 'zchee/deoplete-jedi'
+" Plug 'carlitux/deoplete-ternjs'
+
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
 
