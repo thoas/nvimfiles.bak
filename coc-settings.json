@@ -2,8 +2,11 @@
     "languageserver": {
         "golang": {
             "command": "gopls",
-            "rootPatterns": ["go.mod"],
-            "filetypes": ["go"]
+            "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
+            "filetypes": ["go"],
+            "initializationOptions": {
+                "usePlaceholders": true
+            }
         },
         "python": {
             "command": "python",
@@ -52,7 +55,13 @@
                             "enabled": true
                         },
                         "pycodestyle": {
-                            "enabled": true
+                            "enabled": true,
+                            "ignore": [
+                                "E201",
+                                "E501",
+                                "E402",
+                                "W503"
+                            ]
                         },
                         "pydocstyle": {
                             "enabled": false,
